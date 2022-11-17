@@ -1,5 +1,7 @@
 package main.week3.Game;// @ author ninaaano
 
+import static main.week3.Game.Player.level;
+
 public class BeginnerLevel implements PlayerLevel {
 
     @Override
@@ -17,17 +19,18 @@ public class BeginnerLevel implements PlayerLevel {
         System.out.println("Turn 할 줄 모르지롱.");
     }
 
-    public int level(){
-        return 1;
+    @Override
+    public void go(int time) {
+        level.run();
+        for (int i = 0; i < time; i++) {
+            level.jump();
+        }
+        level.turn();
     }
 
-    @Override
-    public void play(int time) {
-        run();
-        for (int i = 0; i < time; i++) {
-            jump();
-        }
-        turn();
+    public void showLevelMessage(){
+        System.out.println("Lv.1");
     }
+
 }
 

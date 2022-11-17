@@ -25,5 +25,6 @@ public class Player {
             level.jump();
         }
         level.turn();
+        level.showLevelMessage();
     }
 }

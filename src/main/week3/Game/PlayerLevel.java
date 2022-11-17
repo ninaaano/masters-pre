@@ -7,7 +7,8 @@ public interface PlayerLevel {
 
     void turn();
 
-    int level();
+    void showLevelMessage();
 
-    void play(int time);
+    void go(int time);
+
 }

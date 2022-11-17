@@ -1,5 +1,7 @@
 package main.week3.Game;// @ author ninaaano
 
+import static main.week3.Game.Player.level;
+
 public class SuperLevel implements PlayerLevel {
     @Override
     public void run() {
@@ -16,17 +18,18 @@ public class SuperLevel implements PlayerLevel {
         System.out.println("한 바퀴 돕니다.");
     }
 
-    public int level(){
-        return 3;
+    @Override
+    public void go(int time) {
+        level.run();
+        for (int i = 0; i < time; i++) {
+            level.jump();
+        }
+        level.turn();
     }
 
-    @Override
-    public void play(int time) {
-        run();
-        for (int i = 0; i < time; i++) {
-            jump();
-        }
-        turn();
+    public void showLevelMessage(){
+        System.out.println("Lv.3");
     }
+
 }
 
