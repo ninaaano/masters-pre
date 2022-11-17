@@ -2,59 +2,28 @@ package main.week3.Game;// @ author ninaaano
 
 public class Player {
 
-    public static final int BEGINNER_LEVEL = 1;
-    public static final int ADVANCED_LEVEL = 2;
-    public static final int SUPER_LEVEL = 3;
-    private int level;
+    static PlayerLevel level;
+    public static final PlayerLevel BEGINNER_LEVEL = new BeginnerLevel();
+    public static final PlayerLevel ADVANCED_LEVEL = new AdvancedLevel();
+    public static final PlayerLevel SUPER_LEVEL = new SuperLevel();
 
     public Player() {
         level = BEGINNER_LEVEL;
     }
 
-    public void jump() {
-        if(level == BEGINNER_LEVEL) {
-            System.out.println("Jump 할 줄 모르지롱.");
-        }
-        else if(level == ADVANCED_LEVEL) {
-            System.out.println("높이 jump 합니다.");
-        }
-        else if(level == SUPER_LEVEL) {
-            System.out.println("아주 높이 jump 합니다.");
-        }
+    public PlayerLevel getLevel() {
+        return level;
     }
 
-    public void run() {
-        if(level == BEGINNER_LEVEL) {
-            System.out.println("천천히 달립니다.");
-        }
-        else if(level == ADVANCED_LEVEL) {
-            System.out.println("빨리 달립니다.");
-        }
-        else if(level == SUPER_LEVEL) {
-            System.out.println("엄청 빨리 달립니다.");
-        }
-
-    }
-
-    public void turn() {
-        if(level == BEGINNER_LEVEL) {
-            System.out.println("Turn 할 줄 모르지롱.");
-        }
-        else if(level == ADVANCED_LEVEL) {
-            System.out.println("Turn 할 줄 모르지롱.");
-        }
-        else if(level == SUPER_LEVEL) {
-            System.out.println("한 바퀴 돕니다.");
-        }
-    }
-    public void play(int time) {
-        run();
-        for(int i =0; i < time; i++) {
-            jump();
-        }
-        turn();
-    }
-    public void upgradeLevel(int level) {
+    public void upgradeLevel(PlayerLevel level) {
         this.level = level;
+    }
+
+    public void play(int count) {
+        level.run();
+        for (int i = 0; i < count; i++) {
+            level.jump();
+        }
+        level.turn();
     }
 }
