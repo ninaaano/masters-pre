@@ -1,5 +1,7 @@
 package main.week4.MemberShip.membership;// @ author ninaaano
 
+import java.util.Objects;
+
 public class Member {
     private int id;
     private String name;
@@ -25,5 +27,16 @@ public class Member {
 
     public String viewInfo() {
         return  name + "님의 아이디는 " + id + "이고 등급은 " + grade + "입니다.";
+    }
+
+    @Override
+    public boolean equals(Object o) {
+        Member member = (Member) o;
+        return this.id == member.id;
+    }
+
+    @Override
+    public int hashCode() {
+        return Objects.hash(id);
     }
 }
